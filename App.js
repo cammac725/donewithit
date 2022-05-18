@@ -3,9 +3,14 @@ import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function App() {
+
+  const handlePress = () => console.log("Text pressed")
+
   return (
     <SafeAreaProvider style={styles.container}>
-      <Text>Halo React Native</Text>
+      <Text numberOfLines={1} onPress={handlePress}>
+        Halo React Native
+      </Text>
       <StatusBar style="auto" />
     </SafeAreaProvider>
   );
