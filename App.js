@@ -1,23 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, Image, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, Button, Image } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function App() {
 
-  const handlePress = () => console.log("Text pressed")
+  const handlePress = () => console.log("button pressed")
 
   return (
     <SafeAreaProvider style={styles.container}>
-      <Text numberOfLines={1} onPress={handlePress}>
+      <Text>
         Hello React Native
       </Text>
-      <Image
-        fadeDuration={500}
-        source={{
-          width: 200,
-          height: 300, 
-          uri: 'https://picsum.photos/200/300'
-        }}/>
+      <Button title="Click me" onPress={handlePress} />
+      
+      <TouchableOpacity>
+        <Image
+          fadeDuration={500}
+          source={{
+            width: 200,
+            height: 300, 
+            uri: 'https://picsum.photos/200/300'
+          }}/>
+      </TouchableOpacity>
       <StatusBar style="auto" />
     </SafeAreaProvider>
   );
