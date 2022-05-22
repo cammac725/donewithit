@@ -1,13 +1,36 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TouchableOpacity, Button, Image } from 'react-native';
+import 
+  { 
+    StyleSheet, 
+    Text,
+    Alert,
+    TouchableOpacity, 
+    Button, 
+    Image,
+    Platform,
+  } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function App() {
 
-  const handlePress = () => console.log("button pressed")
+  // iOS only
+  // const handlePress = () => Alert.prompt(
+  //   "Answer quickly",
+  //   "How much do you love me?",
+  //   text => Alert.alert("Tons!")
+  // )
+
+  const handlePress = () => Alert.alert(
+    "Answer if you dare",
+    "Do you love me?",
+    [
+      { text: "Yes", onPress: () => Alert.alert("Phew!") },
+      { text: "No", onPress: () => Alert.alert("What?!?!") }
+    ]
+  )
 
   return (
-    <SafeAreaProvider style={styles.container}>
+    <SafeAreaProvider style={[styles.container, containerStyle]}>
       <Text>
         Hello React Native
       </Text>
@@ -27,11 +50,15 @@ export default function App() {
   );
 }
 
+const containerStyle = { backgroundColor: 'lightblue'}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    // paddingTop: 
+    //   Platform.OS === "android" ? 25 : 0,
   },
 });
