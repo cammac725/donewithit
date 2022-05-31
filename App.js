@@ -1,9 +1,9 @@
 import React from 'react';
-// import { StatusBar } from 'expo-status-bar';
-import { View } from 'react-native';
-// import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { View, Text } from 'react-native';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen'
+
+import AppText from './app/components/AppText';
 
 export default function App() {
 
@@ -15,14 +15,7 @@ export default function App() {
         alignItems: 'center',
       }}  
     >
-      <View style={{
-        backgroundColor: 'lightblue',
-        width: 100,
-        height: 100,
-        borderWidth: 10,
-        borderColor: 'royalblue',
-        borderRadius: 10,
-      }}></View>
+      <AppText>I love React Native</AppText>
     </View>
   )
 }
